@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Todo;
 
 class TodosController extends Controller
 {
@@ -13,6 +14,8 @@ class TodosController extends Controller
      */
     public function index()
     {
+        $todo=Todo::orderBy('created_at','asc')->get();
+        return view('todos.index')->with('todos',$todo);
         //
     }
 
@@ -45,6 +48,8 @@ class TodosController extends Controller
      */
     public function show($id)
     {
+        $todo=Todo::find($id);
+        return view('todos.show')->with('todo',$todo);
         //
     }
 
