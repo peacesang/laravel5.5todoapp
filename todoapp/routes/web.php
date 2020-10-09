@@ -16,5 +16,5 @@
 Route::resource('todo', 'TodosController');
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('todo');
 });
